@@ -6,27 +6,31 @@
 
     <h1 class="text-warning display-1">Administrator <b class="text-info">Dashboard</b></h1>
     
-    <div class="col">
-        <a asp-page="Add" asp-area="Admin" class="btn btn-secondary">Add new one</a>
+   
+
+    <div class="container-fluid col-12 align-content-center">
+        <div class="row">
+            <div class="card shadow-lg bg-danger col-lg-5 p-3 m-3" >
+                <h1 class="text-white display-1 font-weight-bold">Livres</h1>
+                <h1 class="text-white font-weight-bold rounded-circle">100.000</h1>
+                <a asp-page-handler="Livre" asp-area="Admin" class="text-muted">View All</a>
+            </div>
+            <div class="card shadow-lg bg-warning col-lg-5 p-3 m-3">
+                <h1 class="text-white display-1 font-weight-bold">Produits</h1>
+                <h1 class="text-white font-weight-bold rounded-circle">Vide</h1>
+              <a href="#" class="align-text-bottom">View All</a>
+            </div>
+            <div class="card shadow-lg bg-info col-lg-5 p-3 m-3">
+                <h1 class="text-white display-1 font-weight-bold">Category</h1>
+                <h1 class="text-white font-weight-bold rounded-circle">Vide</h1>
+                <a href="#" class="align-text-bottom">View All</a>
+            </div>
+            <div class="card shadow-lg bg-secondary col-lg-5 p-3 m-3">
+                <h2 class="text-white display-1 font-weight-bold">Users</h2>
+                <h1 class="text-white font-weight-bold rounded-circle">Vide</h1>
+                <a href="#" class="align-text-bottom">View All</a>
+            </div>
+        </div>      
     </div>
 
-    <h3 class="text-info mb-4 mt-4">Book Index</h3>
-    <div class="row">
-        <table class="table table-responsive">
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Year</th>
-                <th>Actions</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <a href="#" class="btn btn-primary">Update</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
-                </td>
-            </tr>
-        </table>
-    </div>
+

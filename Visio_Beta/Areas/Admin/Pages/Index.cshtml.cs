@@ -12,5 +12,27 @@ namespace Visio_Beta.Areas.Admin.Pages
         public void OnGet()
         {
         }
+
+        public IActionResult OnGetLivre()
+        {
+            return RedirectToPage("Books", "Admin","Index");
+        }
+        
+        public IActionResult OnGetProduits()
+        {
+            return RedirectToPage("Produits", "Admin","Pages");
+        }
+        
+        public IActionResult OnGetCategory()
+        {
+            return RedirectToPage("Category", "Admin", "Pages");
+        }
+        
+        public IActionResult OnGetUsers()
+        {
+            return RedirectToPage("Produits", "Admin", "Pages");
+        }
+
+
     }
 }

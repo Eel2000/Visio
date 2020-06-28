@@ -1,0 +1,32 @@
+﻿@page
+@model Visio_Beta.Areas.Admin.Pages.BooksModel
+@{
+    ViewData["Title"] = "Livres";
+}
+
+
+<div class="col">
+    <a asp-page="Add" asp-area="Admin" class="btn btn-secondary float-right">Add new one</a>
+</div>
+
+<h3 class="text-info mb-4 mt-4">Book Index</h3>
+<div class="row">
+    <table class="table table-responsive">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                @* on doit lui passer l'ID du livre a mettre a jour *@
+                <a asp-area="Admin" asp-page="Update" class="btn btn-primary">Update</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
