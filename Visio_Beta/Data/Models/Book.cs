@@ -30,6 +30,12 @@ namespace Visio_Beta.Data.Models
         [Required]
         public byte Content { get; set; }
 
+        [Required]
+        public DateTime Add_date { get; set; }
+        
+        [Required]
+        public DateTime Update_date { get; set; }
+
         public Category Categories { get; set; }
     }
 }

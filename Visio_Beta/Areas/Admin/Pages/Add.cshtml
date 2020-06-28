@@ -11,26 +11,26 @@
     <form method="post">
         <div class="row form-group">
             <div class="col-2">
-                <label>Titre</label>
+                <label asp-for="Book.Title"></label>
             </div>
             <div class="col-9">
-                <input type="text" class="form-control" placeholder="ex:livre de la jungle...etc" />
+                <input type="text" asp-for="Book.Title" class="form-control" placeholder="ex:livre de la jungle...etc" />
             </div>
         </div>
         <div class="row form-group">
             <div class="col-2">
-                <label>Auteur</label>
+                <label asp-for="Book.Author"></label>
             </div>
             <div class="col-9">
-                <input type="text" class="form-control" placeholder="ex:Frank Dunno" />
+                <input type="text" asp-for="Book.Title" class="form-control" placeholder="ex:Frank Dunno" />
             </div>
         </div>
         <div class="row form-group">
             <div class="col-2">
-                <label>Annee</label>
+                <label asp-for="Book.Year"></label>
             </div>
             <div class="col-9">
-                <input type="text" class="form-control" placeholder="ex: 2015" />
+                <input type="text" asp-for="Book.Year" class="form-control" placeholder="ex: 2015" />
             </div>
         </div>
         <div class="row form-group">
