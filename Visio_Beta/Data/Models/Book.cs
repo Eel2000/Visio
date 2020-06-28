@@ -28,7 +28,7 @@ namespace Visio_Beta.Data.Models
         public string Edition { get; set; }
 
         [Required]
-        public byte Content { get; set; }
+        public byte[] Content { get; set; }
 
         [Required]
         public DateTime Add_date { get; set; }
