@@ -30,6 +30,6 @@ namespace Visio_Beta.Data.Models
         [Required]
         public byte Content { get; set; }
 
-        public IEnumerable<Category> Categories { get; set; }
+        public Category Categories { get; set; }
     }
 }

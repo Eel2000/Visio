@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Visio_Beta.Data;
 
 namespace Visio_Beta.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200628075308_TableCateAndBook")]
+    partial class TableCateAndBook
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -230,9 +232,6 @@ namespace Visio_Beta.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CategoriesId")
-                        .HasColumnType("int");
-
                     b.Property<byte>("Content")
                         .HasColumnType("tinyint");
 
@@ -254,8 +253,6 @@ namespace Visio_Beta.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriesId");
-
                     b.ToTable("Books");
                 });
 
@@ -266,11 +263,16 @@ namespace Visio_Beta.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("BookId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Designation")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BookId");
 
                     b.ToTable("Categories");
                 });
@@ -326,11 +328,11 @@ namespace Visio_Beta.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Visio_Beta.Data.Models.Book", b =>
+            modelBuilder.Entity("Visio_Beta.Data.Models.Category", b =>
                 {
-                    b.HasOne("Visio_Beta.Data.Models.Category", "Categories")
-                        .WithMany()
-                        .HasForeignKey("CategoriesId");
+                    b.HasOne("Visio_Beta.Data.Models.Book", null)
+                        .WithMany("Categories")
+                        .HasForeignKey("BookId");
                 });
 #pragma warning restore 612, 618
         }
