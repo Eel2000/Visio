@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -27,6 +28,7 @@ namespace Visio_Beta.Areas.Admin.Pages
         [BindProperty]
         public Category Category { get; set; }
 
+       // [BindProperty]
         public FileModel FileModel { get; set; }
 
         public void OnGet()
@@ -35,13 +37,15 @@ namespace Visio_Beta.Areas.Admin.Pages
 
         public async Task<IActionResult> OnPost()
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 //create scop for buffer stream in memory
                 using (var memStream = new MemoryStream())
                 {
                     //copy file from form to buffer stream 
-                    await FileModel.form.CopyToAsync(memStream);
+                    //await FileModel.form.CopyToAsync(memStream);
+
+                    FileModel.form.CopyTo(memStream);
 
                     //check if file size is under 4Mo
                     if(memStream.Length < 4194304)
@@ -77,6 +81,7 @@ namespace Visio_Beta.Areas.Admin.Pages
 
     public class FileModel
     {
-        public IFormFile form { get; set; }
+        [Required]
+        public IFormFile form { get; set; } = null;
     }
 }

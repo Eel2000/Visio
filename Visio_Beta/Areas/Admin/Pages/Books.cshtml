@@ -9,7 +9,7 @@
     <a asp-page="Add" asp-area="Admin" class="btn btn-secondary float-right">Add new one</a>
 </div>
 
-<h3 class="text-info mb-4 mt-4">Book Index</h3>
+<h3 class="text-warning mb-4 mt-4">Book Index</h3>
 <div class="row">
     <table class="table table-responsive">
 
@@ -19,26 +19,46 @@
                 <tr>
                     <th>Id</th>
                     <th>Title</th>
+                    <th>Author</th>
                     <th>Year</th>
+                    <th>Pages</th>
+                    <th>Edition</th>
+                    <th>Content</th>
+                    <th>Size</th>
+                    <th>Category</th>
+                    <th>Add Date</th>
+                    <th>Update Date</th>
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        @* on doit lui passer l'ID du livre a mettre a jour *@
-                        <a asp-area="Admin" asp-page="Update" class="btn btn-primary">Update</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>
-            </tbody>
+            foreach (var item in Model.Books)
+            {
+                <tbody>
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@item.Author</td>
+                        <td>@item.Year</td>
+                        <td>@item.Pages</td>
+                        <td>@item.Edition</td>
+                        <td>@item.Content</td>
+                        <td>@item.Content.Length</td>
+                        <td>@item.Categories</td>
+                        <td>@item.Add_date</td>
+                        <td>@item.Update_date</td>
+                        <td>
+                            @* on doit lui passer l'ID du livre a mettre a jour *@
+                            <a asp-area="Admin" asp-page="Update" class="btn btn-primary">Update</a>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            }
         }
+        @*if there is nothing then*@
         else
         {
-            <h3 class="text-info text-center mt-lg-3">Ooops! Sorry, There no books.</h3>
+            <h3 class="text-info display-1 offset-4 pt-lg-3">Ooops!</h3>
+            <h3 class="text-info display-1 offset-1 pt-lg-3">Sorry, There no books.</h3>
         }
     </table>
 </div>
